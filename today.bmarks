@@ -2,13 +2,13 @@
 <BrowseTracker_layout_file>
 	<ActiveTarget name="Debug" />
 	<File name="main.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="105" topLine="0" />
-		<BrowseMarks positions="517,12606,16620,16675,19611,21961,25986,35875" />
+		<Cursor position="900" topLine="17" />
+		<BrowseMarks positions="498,2132,2464,5905,9423,11417,20899" />
 		<Book_Marks positions="4503,8820" />
 	</File>
 	<File name="play.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="8109" topLine="77" />
-		<BrowseMarks positions="511,2043,4808,7197,7490,9153,9593,10249" />
-		<Book_Marks positions="476,4771" />
+		<Cursor position="7804" topLine="178" />
+		<BrowseMarks positions="511,5513,8062" />
+		<Book_Marks positions="476" />
 	</File>
 </BrowseTracker_layout_file>

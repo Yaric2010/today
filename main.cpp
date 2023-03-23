@@ -134,51 +134,6 @@ void boll2()
         }
     }
 
-    std::string prog4;
-    std::ifstream in4("morning4.txt"); // окрываем файл для чтения
-
-    if (in4.is_open())
-    {
-        while (getline(in4, prog4))
-        {
-            txSetColor(TX_BLACK);
-             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-            txTextOut(4,73, prog4.c_str());
-
-        }
-    }
-
-    std::string prog5;
-    std::ifstream in5("morning5.txt"); // окрываем файл для чтения
-
-    if (in5.is_open())
-    {
-        while (getline(in5, prog5))
-        {
-            txSetColor(TX_BLACK);
-             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-            txTextOut(4,87, prog5.c_str());
-
-        }
-    }
-
-    std::string prog6;
-    std::ifstream in6("morning6.txt"); // окрываем файл для чтения
-
-    if (in6.is_open())
-    {
-        while (getline(in6, prog6))
-        {
-            txSetColor(TX_BLACK);
-             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-            txTextOut(4,87, prog6.c_str());
-
-        }
-    }
-
    //txTextOut (100, 100, prog1);
 
 
@@ -306,9 +261,7 @@ int main()
             a = "";
             while(!GetAsyncKeyState(VK_RETURN))
             {
-
-
-
+                txSleep(200);
                 if(GetAsyncKeyState('A'))
                 {
                     a = a += 'A';
@@ -414,14 +367,6 @@ int main()
                 {
                     a = a += 'M';
                 }
-                txBitBlt (txDC(), 0, 0, 800, 600, ball);
-
-                txSetColor(TX_BLACK);
-                txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-                txTextOut(4,31, a.c_str());
-                txSleep(200);
-
 
             }
             std::ofstream out1;          // поток для записи
@@ -445,44 +390,13 @@ int main()
             {
                 out3 << " " << std::endl;
             }
-
             out3.close();
-
-            std::ofstream out4;          // поток для записи
-            out4.open("morning4.txt"); // окрываем файл для записи
-            if (out4.is_open())
-            {
-                out4 << " " << std::endl;
-            }
-
-            out4.close();
-
-
-            std::ofstream out5;          // поток для записи
-            out5.open("morning5.txt"); // окрываем файл для записи
-            if (out5.is_open())
-            {
-                out5 << " " << std::endl;
-            }
-
-            out5.close();
-
-            std::ofstream out6;          // поток для записи
-            out6.open("morning6.txt"); // окрываем файл для записи
-            if (out6.is_open())
-            {
-                out6 << " " << std::endl;
-            }
-
-            out6.close();
-
             txSleep(200);
-            boll2();
+boll2();
             a = "";
-
             while(!GetAsyncKeyState(VK_RETURN))
             {
-
+                txSleep(200);
                 if(GetAsyncKeyState('A'))
                 {
                     a = a += 'A';
@@ -511,6 +425,135 @@ int main()
                 if(GetAsyncKeyState('Y'))
                 {
                     a = a += 'Y';
+                }
+                if(GetAsyncKeyState('U'))
+                {
+                    a = a += 'U';
+                }
+                if(GetAsyncKeyState('I'))
+                {
+                    a = a += 'I';
+                }
+                if(GetAsyncKeyState('O'))
+                {
+                    a = a += 'O';
+                }
+                if(GetAsyncKeyState('P'))
+                {
+                    a = a += 'P';
+                }
+                if(GetAsyncKeyState('S'))
+                {
+                    a = a += 'S';
+                }
+                if(GetAsyncKeyState('D'))
+                {
+                    a = a += 'D';
+                }
+                if(GetAsyncKeyState('F'))
+                {
+                    a = a += 'F';
+                }
+                if(GetAsyncKeyState('G'))
+                {
+                    a = a += 'G';
+                }std::ofstream out3;          // поток для записи
+            out2.open("morning3.txt"); // окрываем файл для записи
+            if (out3.is_open())
+            {
+                out2 << " " << std::endl;
+            }
+            out2.close();
+                if(GetAsyncKeyState('H'))
+                {
+                    a = a += 'H';
+                }
+                if(GetAsyncKeyState('J'))
+                {
+                    a = a += 'J';
+                }
+                if(GetAsyncKeyState('K'))
+                {
+                    a = a += 'K';
+                }
+                if(GetAsyncKeyState('L'))
+                {
+                    a = a += 'L';
+                }
+                if(GetAsyncKeyState('Z'))
+                {
+                    a = a += 'Z';
+                }
+                if(GetAsyncKeyState('X'))
+                {
+                    a = a += 'X';
+                }
+                if(GetAsyncKeyState('C'))
+                {
+                    a = a += 'C';
+                }
+                if(GetAsyncKeyState('V'))
+                {
+                    a = a += 'V';
+                }
+                if(GetAsyncKeyState('B'))
+                {
+                    a = a += 'B';
+                }
+                if(GetAsyncKeyState('N'))
+                {
+                    a = a += 'N';
+                }
+                if(GetAsyncKeyState('M'))
+                {
+                    a = a += 'M';
+                }
+
+
+                }
+                  //asd
+                out2.open("morning2.txt"); // окрываем файл для записи
+                if (out2.is_open())
+                {
+                    out2 << a << std::endl;
+                }
+
+
+                boll2();
+              Sleep(200);
+
+
+            boll2();
+            txSleep(200);
+
+            a = "";
+            while(!GetAsyncKeyState(VK_RETURN))
+            {
+                txSleep(200);
+                if(GetAsyncKeyState('A'))
+                {
+                    a = a += 'A';
+                }
+
+                if(GetAsyncKeyState('Q'))
+                {
+                    a = a += 'Q';
+                }
+                if(GetAsyncKeyState('W'))
+                {
+                    a = a += 'W';
+                }
+                if(GetAsyncKeyState('E'))
+                {
+                    a = a += 'E';
+                }
+                if(GetAsyncKeyState('R'))
+                {
+                    a = a += 'R';
+                }
+                if(GetAsyncKeyState('T'))
+                {
+                    a = a += 'T';
                 }
                 if(GetAsyncKeyState('Y'))
                 {
@@ -592,745 +635,16 @@ int main()
                 {
                     a = a += 'M';
                 }
-                txTextOut(4,45, a.c_str());
-                std::string prog1;
-                std::ifstream in1("morning.txt"); // окрываем файл для чтения
 
-                if (in1.is_open())
-                {
-                    while (getline(in1, prog1))
-                    {
-                        txSetColor(TX_BLACK);
-                         txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-                        txTextOut(4,31, prog1.c_str());
-
-                    }
-                }
-                txSleep(200);
-                txBitBlt (txDC(), 0, 0, 800, 600, ball);
 
                 }
                   //asd
-                out2.open("morning2.txt"); // окрываем файл для записи
-                if (out2.is_open())
-                {
-                    out2 << a << std::endl;
-                }
-
-
-                boll2();
-              Sleep(200);
-
-
-            boll2();
-            txSleep(200);
-
-            a = "";
-            while(!GetAsyncKeyState(VK_RETURN))
-            {
-
-                if(GetAsyncKeyState('A'))
-                {
-                    a = a += 'A';
-                }
-
-                if(GetAsyncKeyState('Q'))
-                {
-                    a = a += 'Q';
-                }
-                if(GetAsyncKeyState('W'))
-                {
-                    a = a += 'W';
-                }
-                if(GetAsyncKeyState('E'))
-                {
-                    a = a += 'E';
-                }
-                if(GetAsyncKeyState('R'))
-                {
-                    a = a += 'R';
-                }
-                if(GetAsyncKeyState('T'))
-                {
-                    a = a += 'T';
-                }
-                if(GetAsyncKeyState('Y'))
-                {
-                    a = a += 'Y';
-                }
-                if(GetAsyncKeyState('O'))
-                {
-                    a = a += 'O';
-                }
-                if(GetAsyncKeyState('P'))
-                {
-                    a = a += 'P';
-                }
-                if(GetAsyncKeyState('S'))
-                {
-                    a = a += 'S';
-                }
-                if(GetAsyncKeyState('D'))
-                {
-                    a = a += 'D';
-                }
-                if(GetAsyncKeyState('F'))
-                {
-                    a = a += 'F';
-                }
-                if(GetAsyncKeyState('G'))
-                {
-                    a = a += 'G';
-                }
-                if(GetAsyncKeyState('H'))
-                {
-                    a = a += 'H';
-                }
-                if(GetAsyncKeyState('J'))
-                {
-                    a = a += 'J';
-                }
-                if(GetAsyncKeyState('K'))
-                {
-                    a = a += 'K';
-                }
-                if(GetAsyncKeyState('L'))
-                {
-                    a = a += 'L';
-                }
-                if(GetAsyncKeyState('Z'))
-                {
-                    a = a += 'Z';
-                }
-                if(GetAsyncKeyState('X'))
-                {
-                    a = a += 'X';
-                }
-                if(GetAsyncKeyState('C'))
-                {
-                    a = a += 'C';
-                }
-                if(GetAsyncKeyState('V'))
-                {
-                    a = a += 'V';
-                }
-                if(GetAsyncKeyState('B'))
-                {
-                    a = a += 'B';
-                }
-                if(GetAsyncKeyState('N'))
-                {
-                    a = a += 'N';
-                }
-                if(GetAsyncKeyState('M'))
-                {
-                    a = a += 'M';
-                }
-
-
-
-
-
-
-
-                    txTextOut(4,59, a.c_str());
-                    std::string prog1;
-                    std::ifstream in1("morning.txt"); // окрываем файл для чтения
-
-                    if (in1.is_open())
-                    {
-                        while (getline(in1, prog1))
-                        {
-                            txSetColor(TX_BLACK);
-                             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-                            txTextOut(4,31, prog1.c_str());
-
-                        }
-                    }
-                    std::string prog2;
-                    std::ifstream in2("morning2.txt"); // окрываем файл для чтения
-
-                    if (in2.is_open())
-                    {
-                        while (getline(in2, prog2))
-                        {
-                            txSetColor(TX_BLACK);
-                             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-                            txTextOut(4,45, prog2.c_str());
-
-                        }
-                    }
-                    txSleep(200);
-                    txBitBlt (txDC(), 0, 0, 800, 600, ball);
-
-                }
-
                 out3.open("morning3.txt"); // окрываем файл для записи
                 if (out3.is_open())
                 {
                     out3 << a << std::endl;
                 }
-
-
-
-
-
-                 boll2();
-            txSleep(200);
-
-            a = "";
-            while(!GetAsyncKeyState(VK_RETURN))
-            {
-
-                if(GetAsyncKeyState('A'))
-                {
-                    a = a += 'A';
-                }
-
-                if(GetAsyncKeyState('Q'))
-                {
-                    a = a += 'Q';
-                }
-                if(GetAsyncKeyState('W'))
-                {
-                    a = a += 'W';
-                }
-                if(GetAsyncKeyState('E'))
-                {
-                    a = a += 'E';
-                }
-                if(GetAsyncKeyState('R'))
-                {
-                    a = a += 'R';
-                }
-                if(GetAsyncKeyState('T'))
-                {
-                    a = a += 'T';
-                }
-                if(GetAsyncKeyState('Y'))
-                {
-                    a = a += 'Y';
-                }
-                if(GetAsyncKeyState('O'))
-                {
-                    a = a += 'O';
-                }
-                if(GetAsyncKeyState('P'))
-                {
-                    a = a += 'P';
-                }
-                if(GetAsyncKeyState('S'))
-                {
-                    a = a += 'S';
-                }
-                if(GetAsyncKeyState('D'))
-                {
-                    a = a += 'D';
-                }
-                if(GetAsyncKeyState('F'))
-                {
-                    a = a += 'F';
-                }
-                if(GetAsyncKeyState('G'))
-                {
-                    a = a += 'G';
-                }
-                if(GetAsyncKeyState('H'))
-                {
-                    a = a += 'H';
-                }
-                if(GetAsyncKeyState('J'))
-                {
-                    a = a += 'J';
-                }
-                if(GetAsyncKeyState('K'))
-                {
-                    a = a += 'K';
-                }
-                if(GetAsyncKeyState('L'))
-                {
-                    a = a += 'L';
-                }
-                if(GetAsyncKeyState('Z'))
-                {
-                    a = a += 'Z';
-                }
-                if(GetAsyncKeyState('X'))
-                {
-                    a = a += 'X';
-                }
-                if(GetAsyncKeyState('C'))
-                {
-                    a = a += 'C';
-                }
-                if(GetAsyncKeyState('V'))
-                {
-                    a = a += 'V';
-                }
-                if(GetAsyncKeyState('B'))
-                {
-                    a = a += 'B';
-                }
-                if(GetAsyncKeyState('N'))
-                {
-                    a = a += 'N';
-                }
-                if(GetAsyncKeyState('M'))
-                {
-                    a = a += 'M';
-                }
-
-
-
-
-
-                    txTextOut(4,73, a.c_str());
-                    std::string prog1;
-                    std::ifstream in1("morning.txt"); // окрываем файл для чтения
-
-                    if (in1.is_open())
-                    {
-                        while (getline(in1, prog1))
-                        {
-                            txSetColor(TX_BLACK);
-                             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-                            txTextOut(4,31, prog1.c_str());
-
-                        }
-                    }
-                    std::string prog2;
-                    std::ifstream in2("morning2.txt"); // окрываем файл для чтения
-
-                    if (in2.is_open())
-                    {
-                        while (getline(in2, prog2))
-                        {
-                            txSetColor(TX_BLACK);
-                             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-                            txTextOut(4,45, prog2.c_str());
-
-                        }
-                    }
-
-
-
-                    std::string prog3;
-                    std::ifstream in3("morning3.txt"); // окрываем файл для чтения
-
-                    if (in3.is_open())
-                    {
-                        while (getline(in3, prog3))
-                        {
-                            txSetColor(TX_BLACK);
-                             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-                            txTextOut(4,59, prog3.c_str());
-
-                        }
-                    }
-                    txSleep(200);
-                    txBitBlt (txDC(), 0, 0, 800, 600, ball);
-
-                }
-
-                out4.open("morning4.txt"); // окрываем файл для записи
-                if (out4.is_open())
-                {
-                    out4 << a << std::endl;
-                }
-
-
-
-
-
-
-
-
-
-
-
-
-            boll2();
-            txSleep(200);
-
-            a = "";
-            while(!GetAsyncKeyState(VK_RETURN))
-            {
-
-                if(GetAsyncKeyState('A'))
-                {
-                    a = a += 'A';
-                }
-
-                if(GetAsyncKeyState('Q'))
-                {
-                    a = a += 'Q';
-                }
-                if(GetAsyncKeyState('W'))
-                {
-                    a = a += 'W';
-                }
-                if(GetAsyncKeyState('E'))
-                {
-                    a = a += 'E';
-                }
-                if(GetAsyncKeyState('R'))
-                {
-                    a = a += 'R';
-                }
-                if(GetAsyncKeyState('T'))
-                {
-                    a = a += 'T';
-                }
-                if(GetAsyncKeyState('Y'))
-                {
-                    a = a += 'Y';
-                }
-                if(GetAsyncKeyState('O'))
-                {
-                    a = a += 'O';
-                }
-                if(GetAsyncKeyState('P'))
-                {
-                    a = a += 'P';
-                }
-                if(GetAsyncKeyState('S'))
-                {
-                    a = a += 'S';
-                }
-                if(GetAsyncKeyState('D'))
-                {
-                    a = a += 'D';
-                }
-                if(GetAsyncKeyState('F'))
-                {
-                    a = a += 'F';
-                }
-                if(GetAsyncKeyState('G'))
-                {
-                    a = a += 'G';
-                }
-                if(GetAsyncKeyState('H'))
-                {
-                    a = a += 'H';
-                }
-                if(GetAsyncKeyState('J'))
-                {
-                    a = a += 'J';
-                }
-                if(GetAsyncKeyState('K'))
-                {
-                    a = a += 'K';
-                }
-                if(GetAsyncKeyState('L'))
-                {
-                    a = a += 'L';
-                }
-                if(GetAsyncKeyState('Z'))
-                {
-                    a = a += 'Z';
-                }
-                if(GetAsyncKeyState('X'))
-                {
-                    a = a += 'X';
-                }
-                if(GetAsyncKeyState('C'))
-                {
-                    a = a += 'C';
-                }
-                if(GetAsyncKeyState('V'))
-                {
-                    a = a += 'V';
-                }
-                if(GetAsyncKeyState('B'))
-                {
-                    a = a += 'B';
-                }
-                if(GetAsyncKeyState('N'))
-                {
-                    a = a += 'N';
-                }
-                if(GetAsyncKeyState('M'))
-                {
-                    a = a += 'M';
-                }
-
-
-
-
-
-                    txTextOut(4,87, a.c_str());
-                    std::string prog1;
-                    std::ifstream in1("morning.txt"); // окрываем файл для чтения
-
-                    if (in1.is_open())
-                    {
-                        while (getline(in1, prog1))
-                        {
-                            txSetColor(TX_BLACK);
-                             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-                            txTextOut(4,31, prog1.c_str());
-
-                        }
-                    }
-                    std::string prog2;
-                    std::ifstream in2("morning2.txt"); // окрываем файл для чтения
-
-                    if (in2.is_open())
-                    {
-                        while (getline(in2, prog2))
-                        {
-                            txSetColor(TX_BLACK);
-                             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-                            txTextOut(4,45, prog2.c_str());
-
-                        }
-                    }
-
-
-
-                    std::string prog3;
-                    std::ifstream in3("morning3.txt"); // окрываем файл для чтения
-
-                    if (in3.is_open())
-                    {
-                        while (getline(in3, prog3))
-                        {
-                            txSetColor(TX_BLACK);
-                             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-                            txTextOut(4,59, prog3.c_str());
-
-                        }
-                    }
-
-                    std::string prog4;
-                    std::ifstream in4("morning4.txt"); // окрываем файл для чтения
-
-                    if (in4.is_open())
-                    {
-                        while (getline(in4, prog4))
-                        {
-                            txSetColor(TX_BLACK);
-                             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-                            txTextOut(4,73, prog4.c_str());
-
-                        }
-                    }
-                    txSleep(200);
-                    txBitBlt (txDC(), 0, 0, 800, 600, ball);
-
-                }
-
-                out4.open("morning5.txt"); // окрываем файл для записи
-                if (out4.is_open())
-                {
-                    out4 << a << std::endl;
-                }
-
-
-                boll2();
-            txSleep(200);
-
-            a = "";
-            while(!GetAsyncKeyState(VK_RETURN))
-            {
-
-                if(GetAsyncKeyState('A'))
-                {
-                    a = a += 'A';
-                }
-
-                if(GetAsyncKeyState('Q'))
-                {
-                    a = a += 'Q';
-                }
-                if(GetAsyncKeyState('W'))
-                {
-                    a = a += 'W';
-                }
-                if(GetAsyncKeyState('E'))
-                {
-                    a = a += 'E';
-                }
-                if(GetAsyncKeyState('R'))
-                {
-                    a = a += 'R';
-                }
-                if(GetAsyncKeyState('T'))
-                {
-                    a = a += 'T';
-                }
-                if(GetAsyncKeyState('Y'))
-                {
-                    a = a += 'Y';
-                }
-                if(GetAsyncKeyState('O'))
-                {
-                    a = a += 'O';
-                }
-                if(GetAsyncKeyState('P'))
-                {
-                    a = a += 'P';
-                }
-                if(GetAsyncKeyState('S'))
-                {
-                    a = a += 'S';
-                }
-                if(GetAsyncKeyState('D'))
-                {
-                    a = a += 'D';
-                }
-                if(GetAsyncKeyState('F'))
-                {
-                    a = a += 'F';
-                }
-                if(GetAsyncKeyState('G'))
-                {
-                    a = a += 'G';
-                }
-                if(GetAsyncKeyState('H'))
-                {
-                    a = a += 'H';
-                }
-                if(GetAsyncKeyState('J'))
-                {
-                    a = a += 'J';
-                }
-                if(GetAsyncKeyState('K'))
-                {
-                    a = a += 'K';
-                }
-                if(GetAsyncKeyState('L'))
-                {
-                    a = a += 'L';
-                }
-                if(GetAsyncKeyState('Z'))
-                {
-                    a = a += 'Z';
-                }
-                if(GetAsyncKeyState('X'))
-                {
-                    a = a += 'X';
-                }
-                if(GetAsyncKeyState('C'))
-                {
-                    a = a += 'C';
-                }
-                if(GetAsyncKeyState('V'))
-                {
-                    a = a += 'V';
-                }
-                if(GetAsyncKeyState('B'))
-                {
-                    a = a += 'B';
-                }
-                if(GetAsyncKeyState('N'))
-                {
-                    a = a += 'N';
-                }
-                if(GetAsyncKeyState('M'))
-                {
-                    a = a += 'M';
-                }
-
-
-
-
-
-                    txTextOut(4,101, a.c_str());
-                    std::string prog1;
-                    std::ifstream in1("morning.txt"); // окрываем файл для чтения
-
-                    if (in1.is_open())
-                    {
-                        while (getline(in1, prog1))
-                        {
-                            txSetColor(TX_BLACK);
-                             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-                            txTextOut(4,31, prog1.c_str());
-
-                        }
-                    }
-                    std::string prog2;
-                    std::ifstream in2("morning2.txt"); // окрываем файл для чтения
-
-                    if (in2.is_open())
-                    {
-                        while (getline(in2, prog2))
-                        {
-                            txSetColor(TX_BLACK);
-                             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-                            txTextOut(4,45, prog2.c_str());
-
-                        }
-                    }
-
-
-
-                    std::string prog3;
-                    std::ifstream in3("morning3.txt"); // окрываем файл для чтения
-
-                    if (in3.is_open())
-                    {
-                        while (getline(in3, prog3))
-                        {
-                            txSetColor(TX_BLACK);
-                             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-                            txTextOut(4,59, prog3.c_str());
-
-                        }
-                    }
-
-                    std::string prog4;
-                    std::ifstream in4("morning4.txt"); // окрываем файл для чтения
-
-                    if (in4.is_open())
-                    {
-                        while (getline(in4, prog4))
-                        {
-                            txSetColor(TX_BLACK);
-                             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-                            txTextOut(4,73, prog4.c_str());
-
-                        }
-                    }
-                    std::string prog5;
-                    std::ifstream in5("morning5.txt"); // окрываем файл для чтения
-                    if (in5.is_open())
-                    {
-                        while (getline(in5, prog5))
-                        {
-                            txSetColor(TX_BLACK);
-                             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-                            txTextOut(4,87, prog5.c_str());
-
-                        }
-                    }
-                    txSleep(200);
-                    txBitBlt (txDC(), 0, 0, 800, 600, ball);
-
-                }
-
-                out4.open("morning6.txt"); // окрываем файл для записи
-                if (out4.is_open())
-                {
-                    out4 << a << std::endl;
-                }
-
+                txSleep(1000);
           /*  std::ofstream out("morning.txt", std::ios::app);
             if (out.is_open())
             {
