@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 
+
 int X_mouse = 0;
 int Y_mouse = 0;
 int p = 0;
@@ -16,7 +17,7 @@ HDC  reg = txLoadImage ("register.bmp");
 std::string line;
 
 
-
+using namespace std;
 
 
 
@@ -29,80 +30,34 @@ struct stik_ios
 
 };
 
+
+
+
 void boll()
 {
+    int i = 0;
     txBitBlt (txDC(), 0, 0, 800, 600, ball);
 
-    while(true)
+    string str;
+
+    ifstream file("dela.txt");
+    txSetColor(TX_BLACK);
+    while(file.good())
     {
-        txBitBlt (txDC(), 0, 0, 800, 600, ball);
-            std::string prog1;
-            std::ifstream in1("morning.txt"); // окрываем файл для чтения
-            while (getline(in1, prog1))
-            {
-                txSetColor(TX_BLACK);
-                 txSelectFont ("Arial", 14, 0, FW_BOLD);
 
-                txTextOut(4,31, prog1.c_str());
-            }
-
-
-
-        std::string prog2;
-        std::ifstream in2("morning2.txt"); // окрываем файл для чтения
-
-
-            while (getline(in2, prog2))
-            {
-                txSetColor(TX_BLACK);
-                 txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-                txTextOut(4,45, prog2.c_str());
-
-            }
-
-        txSleep(20);
-       //txTextOut (100, 100, prog1);
-
-    }
-
-
-}
-
-
-void boll2()
-{
-    txBitBlt (txDC(), 0, 0, 800, 600, ball);
-    std::string prog1;
-    std::ifstream in1("morning.txt"); // окрываем файл для чтения
-
-    if (in1.is_open())
-    {
-        while (getline(in1, prog1))
+        getline(file, str);
+        txTextOut(4,31 + i, str.c_str());
+        if(i == 140 or i == 56 or i == 255 or i == 255 + 28 + 14*6 or i == 255 + 28 + 14*6 + 28 + 14*6 or i == 255 + 28 + 14*6 + 28 + 14*6  + 28 + 14*6)
         {
-            txSetColor(TX_BLACK);
-             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-            txTextOut(4,31, prog1.c_str());
-
+            i +=28;
+        }
+        else
+        {
+            i +=14;
         }
     }
 
-
-    std::string prog2;
-    std::ifstream in2("morning2.txt"); // окрываем файл для чтения
-
-    if (in2.is_open())
-    {
-        while (getline(in2, prog2))
-        {
-            txSetColor(TX_BLACK);
-             txSelectFont ("Arial", 14, 0, FW_BOLD);
-
-            txTextOut(4,45, prog2.c_str());
-
-        }
-    }
+    txSleep(5000);
 
    //txTextOut (100, 100, prog1);
 
@@ -115,16 +70,12 @@ void boll2()
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    stik_ios stikmen_ios = {0, 0, txLoadImage("stik1.bmp")};
+     int i= 0;
     txCreateWindow(800, 600);
+    string str;
 
 
-
-    std::ofstream out;          // поток для записи
-
-
-    std::ofstream morning1;
-    std::ofstream morning2;         // поток для записи
+             // поток для записи
 
 
     txDisableAutoPause();
@@ -139,355 +90,241 @@ int main()
 
         if(X_mouse > 286 and X_mouse < 512 and Y_mouse > 405 and Y_mouse < 462 and txMouseButtons() == 1)
         {
-            a = "";
-            while(!GetAsyncKeyState(VK_RETURN))
-            {
-                txSleep(200);
-                txBitBlt (txDC(), 0, 0, 800, 600, reg);
-                //txTextOut(0, 0, std::string a);
-                txSetColor(TX_BLACK);
-                txTextOut(226,407, a.c_str());
+                std::ofstream out;          // поток для записи
+                out.open("dela.txt"); // окрываем файл для записи
+                if (out.is_open())
+                {
+                    out << "";
+                }
+                a = "";
+                while(!GetAsyncKeyState(VK_RETURN))
+                {
+                    txSleep(200);
+                    txBitBlt (txDC(), 0, 0, 800, 600, reg);
+                    //txTextOut(0, 0, std::string a);
+                    txSetColor(TX_BLACK);
+                    txTextOut(226,407, a.c_str());
 
-                if(GetAsyncKeyState('A'))
-                {
-                    a = a += 'A';
-                }
-                else if(GetAsyncKeyState('Q'))
-                {
-                    a = a += 'Q';
-                }
-                else if(GetAsyncKeyState('W'))
-                {
-                    a = a += 'W';
-                }
-                else if(GetAsyncKeyState('S'))
-                {
-                    a = a += 'S';
-                }
-                else if(GetAsyncKeyState('E'))
-                {
-                    a = a += 'E';
-                }
-                else if(GetAsyncKeyState('D'))
-                {
-                    a = a += 'D';
-                }
-                else if(GetAsyncKeyState('R'))
-                {
-                    a = a += 'R';
-                }
-                else if(GetAsyncKeyState('F'))
-                {
-                    a = a += 'F';
-                }
-                else if(GetAsyncKeyState('T'))
-                {
-                    a = a += 'T';
-                }
-                else if(GetAsyncKeyState('G'))
-                {
-                    a = a += 'G';
-                }
-                else if(GetAsyncKeyState('Y'))
-                {
-                    a = a += 'Y';
-                }
-                else if(GetAsyncKeyState('H'))
-                {
-                    a = a += 'H';
-                }
-                else if(GetAsyncKeyState('U'))
-                {
-                    a = a += 'U';
-                }
-                else if(GetAsyncKeyState('J'))
-                {
-                    a = a += 'J';
-                }
-                else if(GetAsyncKeyState('I'))
-                {
-                    a = a += 'I';
-                }
-                else if(GetAsyncKeyState('K'))
-                {
-                    a = a += 'K';
-                }
-                else if(GetAsyncKeyState('O'))
-                {
-                    a = a += 'O';
-                }
-            }
-
-            std::ofstream out;          // поток для записи
-            out.open("parol.txt"); // окрываем файл для записи
-            if (out.is_open())
-            {
-                out << a << std::endl;
-            }
-
-            boll2();
-            txSleep(200);
-            txBitBlt (txDC(), 0, 0, 800, 600, ball);
-            a = "";
-            while(!GetAsyncKeyState(VK_RETURN))
-            {
-                txSleep(200);
-                if(GetAsyncKeyState('A'))
-                {
-                    a = a += 'A';
-                }
-
-                if(GetAsyncKeyState('Q'))
-                {
-                    a = a += 'Q';
-                }
-                if(GetAsyncKeyState('W'))
-                {
-                    a = a += 'W';
-                }
-                if(GetAsyncKeyState('E'))
-                {
-                    a = a += 'E';
-                }
-                if(GetAsyncKeyState('R'))
-                {
-                    a = a += 'R';
-                }
-                if(GetAsyncKeyState('T'))
-                {
-                    a = a += 'T';
-                }
-                if(GetAsyncKeyState('Y'))
-                {
-                    a = a += 'Y';
-                }
-                if(GetAsyncKeyState('U'))
-                {
-                    a = a += 'U';
-                }
-                if(GetAsyncKeyState('I'))
-                {
-                    a = a += 'I';
-                }
-                if(GetAsyncKeyState('O'))
-                {
-                    a = a += 'O';
-                }
-                if(GetAsyncKeyState('P'))
-                {
-                    a = a += 'P';
-                }
-                if(GetAsyncKeyState('S'))
-                {
-                    a = a += 'S';
-                }
-                if(GetAsyncKeyState('D'))
-                {
-                    a = a += 'D';
-                }
-                if(GetAsyncKeyState('F'))
-                {
-                    a = a += 'F';
-                }
-                if(GetAsyncKeyState('G'))
-                {
-                    a = a += 'G';
-                }
-                if(GetAsyncKeyState('H'))
-                {
-                    a = a += 'H';
-                }
-                if(GetAsyncKeyState('J'))
-                {
-                    a = a += 'J';
-                }
-                if(GetAsyncKeyState('K'))
-                {
-                    a = a += 'K';
-                }
-                if(GetAsyncKeyState('L'))
-                {
-                    a = a += 'L';
-                }
-                if(GetAsyncKeyState('Z'))
-                {
-                    a = a += 'Z';
-                }
-                if(GetAsyncKeyState('X'))
-                {
-                    a = a += 'X';
-                }
-                if(GetAsyncKeyState('C'))
-                {
-                    a = a += 'C';
-                }
-                if(GetAsyncKeyState('V'))
-                {
-                    a = a += 'V';
-                }
-                if(GetAsyncKeyState('B'))
-                {
-                    a = a += 'B';
-                }
-                if(GetAsyncKeyState('N'))
-                {
-                    a = a += 'N';
-                }
-                if(GetAsyncKeyState('M'))
-                {
-                    a = a += 'M';
-                }
-
-            }
-            std::ofstream out1;          // поток для записи
-            out1.open("morning.txt"); // окрываем файл для записи
-            if (out1.is_open())
-            {
-                out1 << a << std::endl;
-            }
-            std::ofstream out2;          // поток для записи
-            out2.open("morning2.txt"); // окрываем файл для записи
-            if (out2.is_open())
-            {
-                out2 << " " << std::endl;
-            }
-            out2.close();
-            boll2();
-            txSleep(200);
-
-            a = "";
-            while(!GetAsyncKeyState(VK_RETURN))
-            {
-                txSleep(200);
-                if(GetAsyncKeyState('A'))
-                {
-                    a = a += 'A';
-                }
-
-                if(GetAsyncKeyState('Q'))
-                {
-                    a = a += 'Q';
-                }
-                if(GetAsyncKeyState('W'))
-                {
-                    a = a += 'W';
-                }
-                if(GetAsyncKeyState('E'))
-                {
-                    a = a += 'E';
-                }
-                if(GetAsyncKeyState('R'))
-                {
-                    a = a += 'R';
-                }
-                if(GetAsyncKeyState('T'))
-                {
-                    a = a += 'T';
-                }
-                if(GetAsyncKeyState('Y'))
-                {
-                    a = a += 'Y';
-                }
-                if(GetAsyncKeyState('U'))
-                {
-                    a = a += 'U';
-                }
-                if(GetAsyncKeyState('I'))
-                {
-                    a = a += 'I';
-                }
-                if(GetAsyncKeyState('O'))
-                {
-                    a = a += 'O';
-                }
-                if(GetAsyncKeyState('P'))
-                {
-                    a = a += 'P';
-                }
-                if(GetAsyncKeyState('S'))
-                {
-                    a = a += 'S';
-                }
-                if(GetAsyncKeyState('D'))
-                {
-                    a = a += 'D';
-                }
-                if(GetAsyncKeyState('F'))
-                {
-                    a = a += 'F';
-                }
-                if(GetAsyncKeyState('G'))
-                {
-                    a = a += 'G';
-                }
-                if(GetAsyncKeyState('H'))
-                {
-                    a = a += 'H';
-                }
-                if(GetAsyncKeyState('J'))
-                {
-                    a = a += 'J';
-                }
-                if(GetAsyncKeyState('K'))
-                {
-                    a = a += 'K';
-                }
-                if(GetAsyncKeyState('L'))
-                {
-                    a = a += 'L';
-                }
-                if(GetAsyncKeyState('Z'))
-                {
-                    a = a += 'Z';
-                }
-                if(GetAsyncKeyState('X'))
-                {
-                    a = a += 'X';
-                }
-                if(GetAsyncKeyState('C'))
-                {
-                    a = a += 'C';
-                }
-                if(GetAsyncKeyState('V'))
-                {
-                    a = a += 'V';
-                }
-                if(GetAsyncKeyState('B'))
-                {
-                    a = a += 'B';
-                }
-                if(GetAsyncKeyState('N'))
-                {
-                    a = a += 'N';
-                }
-                if(GetAsyncKeyState('M'))
-                {
-                    a = a += 'M';
+                    if(GetAsyncKeyState('A'))
+                    {
+                        a = a += 'A';
+                    }
+                    else if(GetAsyncKeyState('Q'))
+                    {
+                        a = a += 'Q';
+                    }
+                    else if(GetAsyncKeyState('W'))
+                    {
+                        a = a += 'W';
+                    }
+                    else if(GetAsyncKeyState('S'))
+                    {
+                        a = a += 'S';
+                    }
+                    else if(GetAsyncKeyState('E'))
+                    {
+                        a = a += 'E';
+                    }
+                    else if(GetAsyncKeyState('D'))
+                    {
+                        a = a += 'D';
+                    }
+                    else if(GetAsyncKeyState('R'))
+                    {
+                        a = a += 'R';
+                    }
+                    else if(GetAsyncKeyState('F'))
+                    {
+                        a = a += 'F';
+                    }
+                    else if(GetAsyncKeyState('T'))
+                    {
+                        a = a += 'T';
+                    }
+                    else if(GetAsyncKeyState('G'))
+                    {
+                        a = a += 'G';
+                    }
+                    else if(GetAsyncKeyState('Y'))
+                    {
+                        a = a += 'Y';
+                    }
+                    else if(GetAsyncKeyState('H'))
+                    {
+                        a = a += 'H';
+                    }
+                    else if(GetAsyncKeyState('U'))
+                    {
+                        a = a += 'U';
+                    }
+                    else if(GetAsyncKeyState('J'))
+                    {
+                        a = a += 'J';
+                    }
+                    else if(GetAsyncKeyState('I'))
+                    {
+                        a = a += 'I';
+                    }
+                    else if(GetAsyncKeyState('K'))
+                    {
+                        a = a += 'K';
+                    }
+                    else if(GetAsyncKeyState('O'))
+                    {
+                        a = a += 'O';
+                    }
                 }
 
 
-                }
-                  //asd
-                out2.open("morning2.txt"); // окрываем файл для записи
-                if (out2.is_open())
+                out.open("parol.txt"); // окрываем файл для записи
+                if (out.is_open())
                 {
-                    out2 << a << std::endl;
+                    out << a << std::endl;
+                }
+
+                i = 0;
+                txBitBlt (txDC(), 0, 0, 800, 600, ball);
+
+                for(int x = 0; x < 32; x++)
+                {
+                    a = "";
+                    txSetColor(TX_BLACK);
+                    txSleep(500);
+                    while(!GetAsyncKeyState(VK_RETURN))
+                    {
+
+                        if(GetAsyncKeyState('A'))
+                        {
+                            a = a += 'A';
+                        }
+
+                        if(GetAsyncKeyState('Q'))
+                        {
+                            a = a += 'Q';
+                        }
+                        if(GetAsyncKeyState('W'))
+                        {
+                            a = a += 'W';
+                        }
+                        if(GetAsyncKeyState('E'))
+                        {
+                            a = a += 'E';
+                        }
+                        if(GetAsyncKeyState('R'))
+                        {
+                            a = a += 'R';
+                        }
+                        if(GetAsyncKeyState('T'))
+                        {
+                            a = a += 'T';
+                        }
+                        if(GetAsyncKeyState('Y'))
+                        {
+                            a = a += 'Y';
+                        }
+                        if(GetAsyncKeyState('O'))
+                        {
+                            a = a += 'O';
+                        }
+                        if(GetAsyncKeyState('P'))
+                        {
+                            a = a += 'P';
+                        }
+                        if(GetAsyncKeyState('S'))
+                        {
+                            a = a += 'S';
+                        }
+                        if(GetAsyncKeyState('D'))
+                        {
+                            a = a += 'D';
+                        }
+                        if(GetAsyncKeyState('F'))
+                        {
+                            a = a += 'F';
+                        }
+                        if(GetAsyncKeyState('G'))
+                        {
+                            a = a += 'G';
+                        }
+                        if(GetAsyncKeyState('H'))
+                        {
+                            a = a += 'H';
+                        }
+                        if(GetAsyncKeyState('J'))
+                        {
+                            a = a += 'J';
+                        }
+                        if(GetAsyncKeyState('K'))
+                        {
+                            a = a += 'K';
+                        }
+                        if(GetAsyncKeyState('L'))
+                        {
+                            a = a += 'L';
+                        }
+                        if(GetAsyncKeyState('Z'))
+                        {
+                            a = a +'Z';
+                        }
+                        if(GetAsyncKeyState('X'))
+                        {
+                            a = a + 'X';
+                        }
+                        if(GetAsyncKeyState('C'))
+                        {
+                            a = a + 'C';
+                        }
+                        if(GetAsyncKeyState('V'))
+                        {
+                            a = a + 'V';
+                        }
+                        if(GetAsyncKeyState('B'))
+                        {
+                            a = a + 'B';
+                        }
+                        if(GetAsyncKeyState('N'))
+                        {
+                            a = a + 'N';
+                        }
+                        if(GetAsyncKeyState('M'))
+                        {
+                            a = a + 'M';
+                        }
+
+
+
+
+                        txTextOut(4,31 + i, a.c_str());
+                        txSleep(200);
+                    }
+                    if(i == 140 or i == 56 or i == 255 or i == 255 + 28 + 14*6 or i == 255 + 28 + 14*6 + 28 + 14*6 or i == 255 + 28 + 14*6 + 28 + 14*6  + 28 + 14*6)
+                    {
+                        i +=28;
+                    }
+                    else
+                    {
+                        i +=14;
+                    }
+
+
+
+                    std::ofstream out("dela.txt", std::ios::app);
+                    if (out.is_open())
+                    {
+                        out << a << std::endl;
+                    }
+                    out.close();
+
                 }
 
 
-                boll2();
-              Sleep(200);
-              
-              
 
-          /*  std::ofstream out("morning.txt", std::ios::app);
-            if (out.is_open())
-            {
-                out << "Welcome to CPP" << std::endl;
-            }
-            out.close();
-           */
-      }
+
+
+
+
+
+        }
 
         if(X_mouse > 100 and X_mouse < 325 and Y_mouse > 214 and Y_mouse < 269 and txMouseButtons() == 1)
         {
@@ -503,7 +340,7 @@ int main()
 
                 if(GetAsyncKeyState('A'))
                 {
-                    a = a += 'A';
+                   a = a += 'A';
                 }
                 else if(GetAsyncKeyState('Q'))
                 {
@@ -610,3 +447,105 @@ int main()
     return 0;
 }
 
+/*
+
+
+if(GetAsyncKeyState('A'))
+                {
+                    a = a += 'A';
+                }
+
+                if(GetAsyncKeyState('Q'))
+                {
+                    a = a += 'Q';
+                }
+                if(GetAsyncKeyState('W'))
+                {
+                    a = a += 'W';
+                }
+                if(GetAsyncKeyState('E'))
+                {
+                    a = a += 'E';
+                }
+                if(GetAsyncKeyState('R'))
+                {
+                    a = a += 'R';
+                }
+                if(GetAsyncKeyState('T'))
+                {
+                    a = a += 'T';
+                }
+                if(GetAsyncKeyState('Y'))
+                {
+                    a = a += 'Y';
+                }
+                if(GetAsyncKeyState('O'))
+                {
+                    a = a += 'O';
+                }
+                if(GetAsyncKeyState('P'))
+                {
+                    a = a += 'P';
+                }
+                if(GetAsyncKeyState('S'))
+                {
+                    a = a += 'S';
+                }
+                if(GetAsyncKeyState('D'))
+                {
+                    a = a += 'D';
+                }
+                if(GetAsyncKeyState('F'))
+                {
+                    a = a += 'F';
+                }
+                if(GetAsyncKeyState('G'))
+                {
+                    a = a += 'G';
+                }
+                if(GetAsyncKeyState('H'))
+                {
+                    a = a += 'H';
+                }
+                if(GetAsyncKeyState('J'))
+                {
+                    a = a += 'J';
+                }
+                if(GetAsyncKeyState('K'))
+                {
+                    a = a += 'K';
+                }
+                if(GetAsyncKeyState('L'))
+                {
+                    a = a += 'L';
+                }
+                if(GetAsyncKeyState('Z'))
+                {
+                    a = a += 'Z';
+                }
+                if(GetAsyncKeyState('X'))
+                {
+                    a = a += 'X';
+                }
+                if(GetAsyncKeyState('C'))
+                {
+                    a = a += 'C';
+                }
+                if(GetAsyncKeyState('V'))
+                {
+                    a = a += 'V';
+                }
+                if(GetAsyncKeyState('B'))
+                {
+                    a = a += 'B';
+                }
+                if(GetAsyncKeyState('N'))
+                {
+                    a = a += 'N';
+                }
+                if(GetAsyncKeyState('M'))
+                {
+                    a = a += 'M';
+                }
+
+*/

@@ -1,0 +1,123 @@
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\Users\Kids\Desktop\today-main\bin\Debug\today.exe, файл: c:\codelblocks\codeblocks\mingw\include\txlib.h, строка: 10052, функция: bool {anonymous}::TX::_txCanvas_OnDESTROY(HWND),
+
+Сообщение: Cannot lock GDI to free resources
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050F31C (32-bit), Flags: CMdRE0, Thread: 0x24F8 (Canvas), errno: 34 (Result too large). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0040BFDF in C:\Users\Kids\Desktop\today-main\bin\Debug\today.exe: _txCanvas_OnDESTROY() at c:/codelblocks/codeblocks/mingw/include/txlib.h (10052)
+# 1 0x0040B583 in C:\Users\Kids\Desktop\today-main\bin\Debug\today.exe: _txCanvas_WndProc() at c:/codelblocks/codeblocks/mingw/include/txlib.h (9969)
+# 2 0x771B148B in C:\WINDOWS\System32\USER32.dll: AddClipboardFormatListener()
+# 3 0x771A844A in C:\WINDOWS\System32\USER32.dll: GetClassLongW()
+# 4 0x771A804A in C:\WINDOWS\System32\USER32.dll: GetClassLongW()
+# 5 0x771ABC0F in C:\WINDOWS\System32\USER32.dll: CallNextHookEx()
+# 6 0x778D4FBD in C:\WINDOWS\SYSTEM32\ntdll.dll: KiUserCallbackDispatcher()
+# 7 0x77193CFC in C:\WINDOWS\System32\USER32.dll: MBToWCSEx()
+# 8 0x77193C67 in C:\WINDOWS\System32\USER32.dll: MBToWCSEx()
+# 9 0x0040B91E in C:\Users\Kids\Desktop\today-main\bin\Debug\today.exe: _txCanvas_WndProc() at c:/codelblocks/codeblocks/mingw/include/txlib.h (10008)
+#10 0x771B148B in C:\WINDOWS\System32\USER32.dll: AddClipboardFormatListener()
+#11 0x771A844A in C:\WINDOWS\System32\USER32.dll: GetClassLongW()
+#12 0x771A804A in C:\WINDOWS\System32\USER32.dll: GetClassLongW()
+#13 0x771ABC0F in C:\WINDOWS\System32\USER32.dll: CallNextHookEx()
+#14 0x778D4FBD in C:\WINDOWS\SYSTEM32\ntdll.dll: KiUserCallbackDispatcher()
+#15 0x77193CFC in C:\WINDOWS\System32\USER32.dll: MBToWCSEx()
+#16 0x6E343605 in C:\WINDOWS\system32\uxtheme.dll: Ordinal132()
+#17 0x6E33FB31 in C:\WINDOWS\system32\uxtheme.dll: Ordinal45()
+#18 0x6E338CB8 in C:\WINDOWS\system32\uxtheme.dll: GetThemeBackgroundRegion()
+#19 0x77193C9C in C:\WINDOWS\System32\USER32.dll: MBToWCSEx()
+#20 0x0040B91E in C:\Users\Kids\Desktop\today-main\bin\Debug\today.exe: _txCanvas_WndProc() at c:/codelblocks/codeblocks/mingw/include/txlib.h (10008)
+#21 0x771B148B in C:\WINDOWS\System32\USER32.dll: AddClipboardFormatListener()
+#22 0x771A844A in C:\WINDOWS\System32\USER32.dll: GetClassLongW()
+#23 0x771A804A in C:\WINDOWS\System32\USER32.dll: GetClassLongW()
+#24 0x771ABC0F in C:\WINDOWS\System32\USER32.dll: CallNextHookEx()
+#25 0x778D4FBD in C:\WINDOWS\SYSTEM32\ntdll.dll: KiUserCallbackDispatcher()
+#26 0x77193CFC in C:\WINDOWS\System32\USER32.dll: MBToWCSEx()
+#27 0x6E343605 in C:\WINDOWS\system32\uxtheme.dll: Ordinal132()
+#28 0x6E33FB31 in C:\WINDOWS\system32\uxtheme.dll: Ordinal45()
+#29 0x6E338CB8 in C:\WINDOWS\system32\uxtheme.dll: GetThemeBackgroundRegion()
+#30 0x77193C9C in C:\WINDOWS\System32\USER32.dll: MBToWCSEx()
+#31 0x0040B91E in C:\Users\Kids\Desktop\today-main\bin\Debug\today.exe: _txCanvas_WndProc() at c:/codelblocks/codeblocks/mingw/include/txlib.h (10008)
+#32 0x771B148B in C:\WINDOWS\System32\USER32.dll: AddClipboardFormatListener()
+#33 0x771A844A in C:\WINDOWS\System32\USER32.dll: GetClassLongW()
+#34 0x771A61BA in C:\WINDOWS\System32\USER32.dll: DispatchMessageW()
+#35 0x771982A0 in C:\WINDOWS\System32\USER32.dll: DispatchMessageA()
+#36 0x00409C93 in C:\Users\Kids\Desktop\today-main\bin\Debug\today.exe: _txCanvas_ThreadProc() at c:/codelblocks/codeblocks/mingw/include/txlib.h (9752)
+#37 0x76906CFF in C:\WINDOWS\System32\msvcrt.dll: beginthreadex()
+#38 0x76906DC1 in C:\WINDOWS\System32\msvcrt.dll: endthreadex()
+#39 0x761800F9 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#40 0x778C7BBE in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#41 0x778C7B8E in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::_txCanvas_OnDESTROY(HWND) at c:\codelblocks\codeblocks\mingw\include\txlib.h (10052):
+
+  10050: $   bool locked = false;
+  10051: $   _txWaitFor ((locked = txLock (false), locked), _TX_TIMEOUT);
+=>10052: $   if (!locked) TX_DEBUG_ERROR ("Cannot lock GDI to free resources");
+  10053: 
+  10054:     // Освобождаем пользовательские ресурсы
+
+# 1 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at c:\codelblocks\codeblocks\mingw\include\txlib.h (9969):
+
+   9967: 
+   9968:         case WM_CLOSE:          {$ if (_txCanvas_OnCLOSE      (wnd))  break;       else return 0; }
+=> 9969:         case WM_DESTROY:        {$     _txCanvas_OnDESTROY    (wnd);                    return 0; }
+   9970: 
+   9971:         case WM_ERASEBKGND:     {$ if (!bkErased) { bkErased = true;  break; }     else return 1; }
+
+# 2 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at c:\codelblocks\codeblocks\mingw\include\txlib.h (10008):
+
+  10006:         }
+  10007: 
+=>10008: $   return DefWindowProc (wnd, msg, wpar, lpar);
+  10009:     }
+  10010: 
+
+# 3 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at c:\codelblocks\codeblocks\mingw\include\txlib.h (10008):
+
+  10006:         }
+  10007: 
+=>10008: $   return DefWindowProc (wnd, msg, wpar, lpar);
+  10009:     }
+  10010: 
+
+# 4 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at c:\codelblocks\codeblocks\mingw\include\txlib.h (10008):
+
+  10006:         }
+  10007: 
+=>10008: $   return DefWindowProc (wnd, msg, wpar, lpar);
+  10009:     }
+  10010: 
+
+# 5 in unsigned int {anonymous}::TX::_txCanvas_ThreadProc(void*) at c:\codelblocks\codeblocks\mingw\include\txlib.h (9752):
+
+   9750: 
+   9751: $       TranslateMessage (&msg);
+=> 9752: $       DispatchMessage  (&msg);
+   9753: 
+   9754: $       Sleep (0);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codelblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Mar 23 2023 09:31:42, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Mar 23 2023 09:31:49
+
+Run file:	C:\Users\Kids\Desktop\today-main\bin\Debug\today.exe
+Directory:	C:\Users\Kids\Desktop\today-main
+
+--------------------------------------------------
