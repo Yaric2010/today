@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
 
 int x = 361;
 int X_mouse = 0;
@@ -13,9 +14,7 @@ HDC  menu = txLoadImage ("menu.bmp");
 HDC  login = txLoadImage ("login.bmp");
 HDC  ball = txLoadImage ("ball.bmp");
 HDC  reg = txLoadImage ("register.bmp");
-int o = 0;
 std::string line;
-int q = 0;
 
 using namespace std;
 
@@ -31,16 +30,15 @@ struct stik_ios
 };
 
 
-void mondey()
-{
 
-
-}
 
 
 void boll()
 {
     int i = 0;
+    string q;
+    int o = 0;
+    int res;
     txBitBlt (txDC(), 0, 0, 800, 603, ball);
 
     string str;
@@ -61,64 +59,64 @@ void boll()
             i +=14;
         }
     }
-
+i = 0;
     for(int x = 0; x < 33; x++)
     {
-        a = "";
+
+
+        q = "";
         txSetColor(TX_BLACK);
-        txSleep(500);
-        while(!GetAsyncKeyState(VK_RETURN))
+
+        while(q == "")
         {
 
             if(GetAsyncKeyState('0'))
             {
-                q = q += 0;
+                q = q + '0';
             }
-
             if(GetAsyncKeyState('1'))
             {
-                q = q += 1;
+                q = q + '1';
             }
             if(GetAsyncKeyState('2'))
             {
-                q = q += 2;
+                q = q + '2';
             }
             if(GetAsyncKeyState('3'))
             {
-                q = q += 3;
+                q = q + '3';
             }
             if(GetAsyncKeyState('4'))
             {
-                q = q += 4;
+                q = q + '4';
             }
             if(GetAsyncKeyState('5'))
             {
-                q = q += 5;
+                q = q + '5';
             }
             if(GetAsyncKeyState('6'))
             {
-                q = q += 6;
+                q = q + '6';
             }
             if(GetAsyncKeyState('7'))
             {
-                q = q += 7;
+                q = q + '7';
             }
             if(GetAsyncKeyState('8'))
             {
-                q = q += 8;
+                q = q + '8';
             }
             if(GetAsyncKeyState('9'))
             {
-                q = q += 9;
+                q = q + '9';
             }
 
 
-
-
-
-            txTextOut(378,29 + i, q);
-            txSleep(200);
+            txSetColor(TX_BLACK);
+            txTextOut(378,29 + i, q.c_str());
+            txSleep(100);
         }
+
         if(i == 140 or i == 56 or i == 210 or i == 308 or i == 406)
         {
             i +=28;
@@ -136,10 +134,20 @@ void boll()
             out2 << q << std::endl;
         }
         out2.close();
-        o = q + o;
-        txTextOut(664, 84, o);
+        istringstream(q) >> res;
+        o = o + res;
+        //spri(664, 84, (const char*)(o));
     }
-    txTextOut(664, 84, o);
+    cout << o << endl;
+    char str1[100];
+    sprintf(str1, "%d", o);
+    txTextOut(664, 84, str1);
+    std::ofstream out2("pupik.txt", std::ios::app);
+        if (out3.is_open())
+        {
+            out3 << str1 << std::endl;
+        }
+        out3.close();
 
    //txTextOut (100, 100, prog1);
    txSleep(5000);
@@ -513,7 +521,22 @@ int main()
 
         if(X_mouse > 469 and X_mouse < 694 and Y_mouse > 209 and Y_mouse < 267 and txMouseButtons() == 1)
         {
-            play();
+            std::string popusk;
+            int qwe2;
+            std::ifstream in("pupik.txt"); // окрываем файл для чтения
+            if (in.is_open())
+            {
+                while (getline(in, popusk))
+                {
+
+                }
+            }
+            in.close();
+            istringstream(popusk) >> qwe2;
+            if(qwe2 > 0)
+            {
+                play();
+            }
         }
 }
 
