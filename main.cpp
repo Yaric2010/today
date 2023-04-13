@@ -14,7 +14,11 @@ HDC  menu = txLoadImage ("menu.bmp");
 HDC  login = txLoadImage ("login.bmp");
 HDC  ball = txLoadImage ("ball.bmp");
 HDC  reg = txLoadImage ("register.bmp");
+HDC  menu_n = txLoadImage ("menu_n.bmp");
 std::string line;
+string popusk;
+int qwe2;
+std::ifstream in("pupik.txt"); // окрываем файл для чтения
 
 using namespace std;
 
@@ -143,11 +147,11 @@ i = 0;
     sprintf(str1, "%d", o);
     txTextOut(664, 84, str1);
     std::ofstream out2("pupik.txt", std::ios::app);
-        if (out3.is_open())
+        if (out2.is_open())
         {
-            out3 << str1 << std::endl;
+            out2 << str1 << std::endl;
         }
-        out3.close();
+        out2.close();
 
    //txTextOut (100, 100, prog1);
    txSleep(5000);
@@ -175,9 +179,25 @@ int main()
 
         X_mouse = txMouseX();
         Y_mouse = txMouseY();
+        if (in.is_open())
+        {
+            while(in.good())
+            {
+                getline(in, popusk);
+                istringstream(popusk) >> qwe2;
+            }
+        }
+        in.close();
 
-        txBitBlt (txDC(), 0, 0, 800, 600, menu);
 
+        if(qwe2 > 0)
+        {
+            txBitBlt (txDC(), 0, 0, 800, 600, menu);
+        }
+        else
+        {
+            txBitBlt (txDC(), 0, 0, 800, 600, menu_n);
+        }
         if(X_mouse > 286 and X_mouse < 512 and Y_mouse > 405 and Y_mouse < 462 and txMouseButtons() == 1)
         {
                 std::ofstream out;          // поток для записи
@@ -521,20 +541,22 @@ int main()
 
         if(X_mouse > 469 and X_mouse < 694 and Y_mouse > 209 and Y_mouse < 267 and txMouseButtons() == 1)
         {
-            std::string popusk;
-            int qwe2;
-            std::ifstream in("pupik.txt"); // окрываем файл для чтения
+
+
+
             if (in.is_open())
             {
-                while (getline(in, popusk))
+                while(in.good())
                 {
-
+                    getline(in, popusk);
+                    istringstream(popusk) >> qwe2;
                 }
             }
             in.close();
-            istringstream(popusk) >> qwe2;
+
+            cout << popusk << endl;
             if(qwe2 > 0)
-            {
+            {                    S
                 play();
             }
         }
